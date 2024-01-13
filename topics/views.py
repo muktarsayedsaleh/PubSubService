@@ -80,7 +80,7 @@ def publish_message(request, topic):
         serializer.save()
         # Send message to subscribers
         # TODO: This should be done asynchronously via queues to scale well.
-        #       For the sake of simplicity, we'll do it synchronously for now. as this is just an assignment.
+        #       For the sake of simplicity, we'll do it synchronously for now.
         print("Sending message to subscribers...")
         for subscription in Subscription.objects.filter(topic=topic_obj):
             try:
